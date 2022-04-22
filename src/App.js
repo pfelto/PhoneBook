@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
+import List from "./routes/list";
+import Create from "./routes/create";
 
 function App() {
   return (
@@ -8,11 +10,22 @@ function App() {
         <Link to="/list">Phone Book List</Link>{" "}
         <Link to="/create">Create Contact</Link>
       </nav>
-      <h1>Phone Book Search</h1>
-      <form>
-        <input type="text"></input>
-        <input type="submit"></input>
-      </form>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              <h1>Phone Book Search</h1>
+              <form>
+                <input type="text"></input>
+                <input type="submit"></input>
+              </form>
+            </div>
+          }
+        />
+        <Route path="list" element={<List />} />
+        <Route path="create" element={<Create />} />
+      </Routes>
     </div>
   );
 }
